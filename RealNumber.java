@@ -26,4 +26,11 @@ public class RealNumber{
   public double divide(double num){
     return 1.;
   }
+  //Comparison functions
+  public boolean equals(double num){
+    return true;
+  }
+  public boolean greaterThan(double num){
+    return false;
+  }
 }
