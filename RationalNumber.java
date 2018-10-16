@@ -13,4 +13,8 @@ public class RationalNumber{
   public int getDenominator(){
     return this.denominator;
   }
+  //toString
+  public String toString(){
+    return "";
+  }
 }
