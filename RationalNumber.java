@@ -42,4 +42,8 @@ public class RationalNumber{
   public boolean greaterThan(RationalNumber num){
     return false;
   }
+  //Method that returns a copy of RationalNumber
+  public RationalNumber copy(){
+    return new RationalNumber(this.numerator, this.denominator);
+  }
 }
