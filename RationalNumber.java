@@ -6,5 +6,11 @@ public class RationalNumber{
   public RationalNumber(int num, int denom){
 
   }
-
+  //Get variables
+  public int getNumerator(){
+    return this.numerator;
+  }
+  public int getDenominator(){
+    return this.denominator;
+  }
 }
