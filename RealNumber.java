@@ -33,4 +33,8 @@ public class RealNumber{
   public boolean greaterThan(double num){
     return false;
   }
+  //Method that returns a copy of RealNumber
+  public RealNumber copy(){
+    return new RealNumber(this.val);
+  }
 }
