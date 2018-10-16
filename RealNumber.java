@@ -13,4 +13,17 @@ public class RealNumber{
   public String toString(){
     return "";
   }
+  //Setters and basic operations
+  public double add(double num){
+    return 1.;
+  }
+  public double subtract(double num){
+  return 1.;
+  }
+  public double multiply(double num){
+    return 1.;
+  }
+  public double divide(double num){
+    return 1.;
+  }
 }
