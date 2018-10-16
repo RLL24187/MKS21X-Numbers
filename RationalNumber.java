@@ -4,7 +4,8 @@ public class RationalNumber{
   private int denominator;
   //Constructor to make a rational RealNumber given integers
   public RationalNumber(int num, int denom){
-
+    numerator = num;
+    denominator = denom;
   }
   //Get variables
   public int getNumerator(){
@@ -19,7 +20,7 @@ public class RationalNumber{
   }
   //LCD fxn
   public RationalNumber convertLCD(RationalNumber num){
-    return RationalNumber(9, 2);
+    return new RationalNumber(9, 2);
   }
   //Setters and basic operations
   public double add(double num){
