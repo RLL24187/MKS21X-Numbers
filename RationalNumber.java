@@ -17,4 +17,28 @@ public class RationalNumber{
   public String toString(){
     return "";
   }
+  //LCD fxn
+  public RationalNumber convertLCD(RationalNumber num){
+    return RationalNumber(9, 2);
+  }
+  //Setters and basic operations
+  public double add(double num){
+    return 1.;
+  }
+  public double subtract(double num){
+  return 1.;
+  }
+  public double multiply(double num){
+    return 1.;
+  }
+  public double divide(double num){
+    return 1.;
+  }
+  //Comparison functions
+  public boolean equals(RationalNumber num){
+    return true;
+  }
+  public boolean greaterThan(RationalNumber num){
+    return false;
+  }
 }
