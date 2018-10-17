@@ -1,5 +1,4 @@
-public class RationalNumber extends RealNumber
-{
+public class RationalNumber extends RealNumber{
   //Instance variables
   private int numerator, denominator;
 
@@ -38,7 +37,8 @@ public class RationalNumber extends RealNumber
     int formerN = numerator;
     numerator = denominator;
     denominator = formerN;
-    return null;
+    RationalNumber newNum = new RationalNumber(numerator, denominator);
+    return newNum;
   }
   /**
   *@return true when the RationalNumbers have the same numerators and denominators, false otherwise.
@@ -47,16 +47,16 @@ public class RationalNumber extends RealNumber
     return this.getValue() == other.getValue();
   }
 
-
   /**
   *@return the value expressed as "3/4" or "8/3"
   */
   public String toString(){
+    if (denominator == 0){
+      RationalNumber fixedNum = new RationalNumber(this.reciprocal().numerator, this.reciprocal().denominator);
+      return fixedNum.numerator + "/" + fixedNum.denominator;
+    }
     return numerator + "/" + denominator;
   }
-
-
-
   /**Calculate the GCD of two integers.
   *@param a the first integers
   *@param b the second integer
@@ -64,25 +64,30 @@ public class RationalNumber extends RealNumber
   */
   private static int gcd(int a, int b){
     /*use euclids method or a better one*/
-    return 0;
+    int divisor = 0;
+    int remainder = 0;
+    while (a > b){
+      divisor = a / b;
+      if (remainder - (a - (b*divisor)) == 0){
+        return remainder;
+      }
+      remainder = a - (b * divisor);
+      a = b;
+      b = remainder;
+    }
+    return remainder;
   }
-
-
 
   /**
   *Divide the numerator and denominator by the GCD
   *This must be used to maintain that all RationalNumbers are
   *reduced after construction.
   */
-  private void reduce(){
+  //private void reduce(){
 
-  }
-
-
+  //}
 
   /******************Operations!!!!****************/
-
-
   /**
   *Return a new RationalNumber that is the product of this and the other
   */
