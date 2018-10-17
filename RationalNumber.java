@@ -64,6 +64,12 @@ public class RationalNumber extends RealNumber{
   */
   private static int gcd(int a, int b){
     /*use euclids method or a better one*/
+    if (a < 0){
+      a *= -1;
+    }
+    if (b < 0){
+      b *= -1;
+    }
     if (a < b){
       int formerA = a;
       a = b;
@@ -94,15 +100,18 @@ public class RationalNumber extends RealNumber{
   *This must be used to maintain that all RationalNumbers are
   *reduced after construction.
   */
-  //private void reduce(){
-
-  //}
+  private void reduce(){
+    int divisor = gcd(this.getNumerator(), this.getDenominator());
+    numerator /= divisor;
+    denominator /= divisor;
+  }
 
   /******************Operations!!!!****************/
   /**
   *Return a new RationalNumber that is the product of this and the other
   */
   public RationalNumber multiply(RationalNumber other){
+
     return null;
   }
 
@@ -126,51 +135,3 @@ public class RationalNumber extends RealNumber{
     return null;
   }
 }
-/* public class RationalNumber{
-
-  //Constructor to make a rational RealNumber given integers
-  public RationalNumber(int num, int denom){
-    numerator = num;
-    denominator = denom;
-  }
-  //Get variables
-  public int getNumerator(){
-    return this.numerator;
-  }
-  public int getDenominator(){
-    return this.denominator;
-  }
-  //toString
-  public String toString(){
-    return "";
-  }
-  //LCD fxn
-  public RationalNumber convertLCD(RationalNumber num){
-    return new RationalNumber(9, 2);
-  }
-  //Setters and basic operations
-  public double add(double num){
-    return 1.;
-  }
-  public double subtract(double num){
-  return 1.;
-  }
-  public double multiply(double num){
-    return 1.;
-  }
-  public double divide(double num){
-    return 1.;
-  }
-  //Comparison functions
-  public boolean equals(RationalNumber num){
-    return true;
-  }
-  public boolean greaterThan(RationalNumber num){
-    return false;
-  }
-  //Method that returns a copy of RationalNumber
-  public RationalNumber copy(){
-    return new RationalNumber(this.numerator, this.denominator);
-  }
-}
-*/

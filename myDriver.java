@@ -60,6 +60,12 @@ public class myDriver{
         System.out.println(RationalNumber.gcd(12, 42)); //Should get 6
         System.out.println(RationalNumber.gcd(1, 1)); //Should get 1
         */
-      //Testing 
+      //Testing reduce (when it was public)
+        /*
+        System.out.println(RationalNumber.gcd(D.getNumerator(), D.getDenominator()));
+        D.reduce();
+        System.out.println(D); //Should get -3/2
+        */
+      //Testing Operations
   }
 }
