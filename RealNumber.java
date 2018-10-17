@@ -24,7 +24,10 @@ public class RealNumber{
   }
   /*Return the this divided by the other*/
   public double divide(RealNumber other){
-    return value / other.getValue();
+    if (other.getValue()!= 0)
+      return value / other.getValue();
+    System.out.println("Error: cannot divide by 0");
+      return 0.0;
   }
   /*Return the this minus the other*/
   public double subtract(RealNumber other){
