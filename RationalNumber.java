@@ -11,6 +11,10 @@ public class RationalNumber extends RealNumber{
     super(0);//this value is ignored!
     numerator = nume;
     denominator = deno;
+    if (denominator == 0){
+      numerator = 0;
+      denominator = 1;
+    }
   }
 
   public double getValue(){
@@ -55,15 +59,8 @@ public class RationalNumber extends RealNumber{
   */
   public String toString(){
     if (denominator == 0){
-      /*
-      if (numerator == 0){
-        return "Indeterminate: 0/0";
-      }
-      RationalNumber fixedNum = new RationalNumber(this.reciprocal().numerator, this.reciprocal().denominator);
-      return fixedNum.numerator + "/" + fixedNum.denominator;
-      */
       return "Denominator of 0: default value is 0/1";
-    }
+    }//Should never print
     this.reduce();
     return numerator + "/" + denominator;
   }
