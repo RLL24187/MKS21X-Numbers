@@ -45,6 +45,12 @@ public class myDriver{
         System.out.println(C);
         System.out.println(D);
         */
+      //Testing getValue
+      System.out.println(A);
+      System.out.println(B);
+      System.out.println(C);
+      System.out.println(D);
+      System.out.println(Zero);
       //Testing operations
         //Testing Reciprocal
           /*
@@ -67,5 +73,9 @@ public class myDriver{
         System.out.println(D); //Should get -3/2
         */
       //Testing Operations
+        System.out.println(A.add(C)); //Should get 1
+        System.out.println(A.subtract(C)); //Should get 0
+        System.out.println(Zero.multiply(B)); //Should get 0
+        System.out.println(D.divide(A)); //Should get -3
   }
 }

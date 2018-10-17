@@ -14,7 +14,7 @@ public class RationalNumber extends RealNumber{
   }
 
   public double getValue(){
-    return numerator / denominator;//???
+    return numerator / denominator;
   }
 
   /**
@@ -34,6 +34,9 @@ public class RationalNumber extends RealNumber{
   *and denominator as this RationalNumber but reversed.
   */
   public RationalNumber reciprocal(){
+    if (denominator == 0){
+      return new RationalNumber(0, 1);
+    }
     int formerN = numerator;
     numerator = denominator;
     denominator = formerN;
@@ -52,8 +55,14 @@ public class RationalNumber extends RealNumber{
   */
   public String toString(){
     if (denominator == 0){
+      /*
+      if (numerator == 0){
+        return "Indeterminate: 0/0";
+      }
       RationalNumber fixedNum = new RationalNumber(this.reciprocal().numerator, this.reciprocal().denominator);
       return fixedNum.numerator + "/" + fixedNum.denominator;
+      */
+      return "Denominator of 0: default value is 0/1";
     }
     return numerator + "/" + denominator;
   }
@@ -69,6 +78,9 @@ public class RationalNumber extends RealNumber{
     }
     if (b < 0){
       b *= -1;
+    }
+    if (a == 0 || b == 0){
+      return 1;
     }
     if (a < b){
       int formerA = a;
@@ -111,27 +123,42 @@ public class RationalNumber extends RealNumber{
   *Return a new RationalNumber that is the product of this and the other
   */
   public RationalNumber multiply(RationalNumber other){
-
-    return null;
+    RationalNumber product = new RationalNumber(this.getNumerator() * other.getNumerator(), this.getDenominator() * other.getDenominator());
+    product.reduce();
+    return product;
   }
 
   /**
   *Return a new RationalNumber that is the this divided by the other
   */
   public RationalNumber divide(RationalNumber other){
-    return null;
+    RationalNumber quotient = new RationalNumber(this.getNumerator() * other.getDenominator(), this.getDenominator() * other.getNumerator());
+    quotient.reduce();
+    return quotient;
   }
 
   /**
   *Return a new RationalNumber that is the sum of this and the other
   */
   public RationalNumber add(RationalNumber other){
-    return null;
+    this.numerator = this.getNumerator() * other.getDenominator();
+    other.numerator = other.getNumerator() * this.getDenominator();
+    this.denominator *= other.getDenominator();
+    other.denominator = this.getDenominator();
+    RationalNumber sum = new RationalNumber(this.getNumerator() + other.getNumerator(), this.getDenominator());
+    sum.reduce();
+    return sum;
   }
   /**
   *Return a new RationalNumber that this minus the other
   */
   public RationalNumber subtract(RationalNumber other){
-    return null;
+    this.numerator = this.getNumerator() * other.getDenominator();
+    other.numerator = other.getNumerator() * this.getDenominator();
+    this.denominator *= other.getDenominator();
+    other.denominator = this.getDenominator();
+    RationalNumber difference = new RationalNumber(this.getNumerator() - other.getNumerator(), this.getDenominator());
+    difference.reduce();
+    return difference;
   }
 }
