@@ -64,18 +64,29 @@ public class RationalNumber extends RealNumber{
   */
   private static int gcd(int a, int b){
     /*use euclids method or a better one*/
-    int divisor = 0;
-    int remainder = 0;
-    while (a > b){
+    if (a < b){
+      int formerA = a;
+      a = b;
+      b = formerA;
+    }//Makes the function work for when a<b
+    int divisor = a/b;
+    int remainder = a - (b*divisor);
+    while (divisor != 0){
       divisor = a / b;
-      if (remainder - (a - (b*divisor)) == 0){
-        return remainder;
-      }
       remainder = a - (b * divisor);
+      if (remainder == 0){
+        return b;
+      }
+      //System.out.println(a);
+      //System.out.println(b);
+      //System.out.println(divisor);
+      //System.out.println(remainder);
       a = b;
       b = remainder;
+      //System.out.println(a);
+      //System.out.println(b);
     }
-    return remainder;
+    return b;
   }
 
   /**
