@@ -14,7 +14,7 @@ public class RationalNumber extends RealNumber{
   }
 
   public double getValue(){
-    return numerator / denominator;
+    return numerator * 1.0 / denominator;
   }
 
   /**
@@ -38,9 +38,9 @@ public class RationalNumber extends RealNumber{
       return new RationalNumber(0, 1);
     }
     int formerN = numerator;
-    numerator = denominator;
-    denominator = formerN;
-    RationalNumber newNum = new RationalNumber(numerator, denominator);
+    int newNumerator = denominator;
+    int newDenominator = formerN;
+    RationalNumber newNum = new RationalNumber(newNumerator, newDenominator);
     return newNum;
   }
   /**
@@ -64,6 +64,7 @@ public class RationalNumber extends RealNumber{
       */
       return "Denominator of 0: default value is 0/1";
     }
+    this.reduce();
     return numerator + "/" + denominator;
   }
   /**Calculate the GCD of two integers.
